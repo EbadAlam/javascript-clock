@@ -45,6 +45,20 @@
 			font-size: 20px;
 			padding: 17px 15px 0px 15px;
 		}
+
+
+
+		#btn_div{
+			text-align: center;
+			margin-top: 50px;
+		}
+		#btn{
+			padding: 10px 8px 10px 8px;
+			border-radius: 15px;
+			border:none;
+			background: #a1a1a1;
+			cursor: pointer;
+		}
 		@media only screen and (max-width: 600px){
 			.clock_div{
 				padding: 8px 20px 8px 20px;
@@ -90,7 +104,11 @@
 			<!-- <h2>16</h2> -->
 		</div>
 	</div>
-
+	<div id="btn_div">
+		<div id="sub_btn_div" class="container">
+		<button id="btn">Click Me To Change Background</button>
+		</div>
+	</div>
 	<script type="text/javascript">
 		const dom_hours = document.querySelector('#hours');
 		const dom_minutes = document.querySelector('#minutes');
@@ -126,6 +144,25 @@
 		}
 		currentTime();
 
+	</script>
+	<script type="text/javascript">
+		const btn = document.querySelector('#btn');
+		const body = document.querySelector('body');
+		// body.style.background = 'black';
+		// console.log(btn,color_code);
+		function generateRandomColor(){
+		    let maxVal = 0xFFFFFF; // 16777215
+		    let randomNumber = Math.random() * maxVal; 
+		    randomNumber = Math.floor(randomNumber);
+		    randomNumber = randomNumber.toString(16);
+		    let randColor = randomNumber.padStart(6, 0);   
+		    return `#${randColor.toUpperCase()}`
+		}
+		btn.onclick = () => {
+			// alert('working');
+			body.style.background = generateRandomColor();
+		}
+ 
 	</script>
 </body>
 </html>
